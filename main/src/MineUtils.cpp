@@ -2,7 +2,7 @@
 // Created by 王子潇 on 2021/2/24.
 //
 
-#include "MineUtils.h"
+#include "../include/MineUtils.h"
 
 using namespace std;
 

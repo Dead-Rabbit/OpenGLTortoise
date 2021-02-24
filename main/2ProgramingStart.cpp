@@ -1,9 +1,13 @@
+#if defined(__WIN32__)
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#elif TARGET_OS_MAC
 #include <glew.h>
 #include <glfw3.h>
-
+#endif
 #include <string>
 
-#include "MineUtils.h"
+#include "include/MineUtils.h"
 
 using namespace std;
 

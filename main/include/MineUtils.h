@@ -5,8 +5,14 @@
 #ifndef OPENGLLEARN_MINEUTILS_H
 #define OPENGLLEARN_MINEUTILS_H
 
-#include <glew.h>
-#include <glfw3.h>
+#if defined(__WIN32__)
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#elif TARGET_OS_MAC
+    #include <glew.h>
+    #include <glfw3.h>
+#endif
+
 #include <iostream>
 #include <fstream>
 #include <string>
