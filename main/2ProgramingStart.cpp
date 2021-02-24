@@ -5,8 +5,8 @@
 #include <glew.h>
 #include <glfw3.h>
 #endif
-#include <string>
 
+#include <string>
 #include "include/MineUtils.h"
 
 using namespace std;
