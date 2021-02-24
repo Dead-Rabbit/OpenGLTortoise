@@ -1,7 +1,7 @@
 #if defined(__WIN32__)
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#elif TARGET_OS_MAC
+#else
 #include <glew.h>
 #include <glfw3.h>
 #endif

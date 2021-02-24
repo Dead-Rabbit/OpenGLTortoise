@@ -8,9 +8,9 @@
 #if defined(__WIN32__)
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#elif TARGET_OS_MAC
-    #include <glew.h>
-    #include <glfw3.h>
+#else
+#include <glew.h>
+#include <glfw3.h>
 #endif
 
 #include <iostream>
