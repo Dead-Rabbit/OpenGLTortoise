@@ -1,5 +1,12 @@
+#if defined(__WIN32__)
 #include <GL/glew.h>
 #include <GL/freeglut.h>
+#else
+/* Defined before OpenGL and GLUT includes to avoid deprecation messages */
+#define GL_SILENCE_DEPRECATION
+#include <glew.h>
+#include <GLUT/glut.h>
+#endif
 
 void ChangeSize(GLsizei w,GLsizei h){
     if(w<1) w=1;
