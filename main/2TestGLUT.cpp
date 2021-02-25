@@ -26,7 +26,7 @@ void lineSegment(void) {
     glFlush();
 }
 
-int main(int argc, char** argv){
+int run_2_test_glut(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
     glutInitWindowPosition(50, 100);
@@ -37,4 +37,8 @@ int main(int argc, char** argv){
     glutDisplayFunc(lineSegment);
     glutMainLoop();
     return 0;
+}
+
+int main(int argc, char** argv){
+    return run_2_test_glut(argc, argv);
 }
