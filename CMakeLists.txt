@@ -45,7 +45,8 @@ elseif (WINDOWS)
 
 #    add_executable(OpenGLLearn src/glad.c main/1Triangle.cpp main/2ProgramingStart.cpp main/src/ main/include/MineUtils.h main/src/MineUtils.cpp main/2TestGLUT.cpp)
     add_executable(OpenGLLearn src/glad.c ${SOURCE_FILES})
-    target_link_libraries(OpenGLLearn -lfreeglut -lopengl32 libglfw3.a glew32.lib glew32s.lib)
+    target_link_libraries(OpenGLLearn -lfreeglut -lopengl32 libglfw3.a glew32.lib glew32s.lib) # freeglut 版本
+
 elseif (LINUX)
 endif ()
 

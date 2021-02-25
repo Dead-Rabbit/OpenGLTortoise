@@ -1,4 +1,5 @@
 #if defined(__WIN32__)
+#include <windows.h>
 #include <GL/glew.h>
 #include <GL/freeglut.h>
 #else
@@ -8,53 +9,32 @@
 #include <GLUT/glut.h>
 #endif
 
-void ChangeSize(GLsizei w,GLsizei h){
-    if(w<1) w=1;
-    if(h<1) h=1;
-    glViewport(0,0,w,h);
+void Init(void) {
+    glClearColor(1.0, 1.0, 1.0, 0.0);
     glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    if(w<=h)
-        glOrtho(-30.0,30.0,-30.0*(GLfloat)h/(GLfloat)w,30.0*(GLfloat)h/(GLfloat)w,-50.0,50.0);
-    else
-        glOrtho(-30.0*(GLfloat)w/(GLfloat)h,30.0*(GLfloat)w/(GLfloat)h,-30.0,30.0,-50.0,50.0);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
+    gluOrtho2D(0.0, 200.0, 0.0, 150.0);
 }
-void DrawMyObjects() {
-    //画四边形
-    glBegin(GL_QUADS);
-    glColor3f(0.7,0.5,0.2);
-    glVertex2f(-7,-3);
-    glVertex2f(-5.5,-1);
-    glVertex2f(-1,-0.5);
-    glVertex2f(-1,-4);
-    glColor3f(0.5,0.7,0.2);
-    glVertex2f(2,-6.25);
-    glVertex2f(2.5,-1);
-    glVertex2f(6.5,1);
-    glVertex2f(4.5,-6.25);
-    glEnd();
-}
-void RenderScene()
-{
+
+void lineSegment(void) {
     glClear(GL_COLOR_BUFFER_BIT);
-    glColor3f(1.0,1.0,0.0);
-    DrawMyObjects();
+    glColor3f(0.0, 0.4, 0.2);
+    glBegin(GL_LINES);
+        glVertex2i(180, 15);
+        glVertex2i(10, 145);
+    glEnd();
+
     glFlush();
 }
-int main(int argc, char *argv[]){
+
+int main(int argc, char** argv){
     glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE|GLUT_RGB);
-    glutInitWindowSize(600,600);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowPosition(50, 100);
+    glutInitWindowSize(400, 300);
+    glutCreateWindow("An Example OpenGL Program");
 
-    glutCreateWindow("My first");
-
-    glClearColor(0.51,0.51,0.51,0.5);
-
-    glutReshapeFunc(ChangeSize);
-    glutDisplayFunc(RenderScene);
-
+    Init();
+    glutDisplayFunc(lineSegment);
     glutMainLoop();
     return 0;
 }
