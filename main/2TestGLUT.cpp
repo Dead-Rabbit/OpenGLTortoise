@@ -12,7 +12,7 @@
 void Init(void) {
     glClearColor(1.0, 1.0, 1.0, 0.0);
     glMatrixMode(GL_PROJECTION);
-    gluOrtho2D(0.0, 200.0, 0.0, 150.0);
+    glOrtho(0.0, (GLdouble)200.0, 0.0, (GLdouble)150.0, -1, 1);
 }
 
 void lineSegment(void) {
