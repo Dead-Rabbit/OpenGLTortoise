@@ -6,6 +6,8 @@ elseif (CMAKE_HOST_UNIX)
     set(LINUX 1)
 endif ()
 
+set(SOURCE_FILES src/glad.c main/1Triangle.cpp main/2ProgramingStart.cpp main/src/ main/include/MineUtils.h main/src/MineUtils.cpp main/2TestGLUT.cpp)
+
 if (MACOS)
     cmake_minimum_required(VERSION 3.16)
     project(OpenGLLearn)
@@ -24,7 +26,7 @@ if (MACOS)
     link_libraries(${OPENGL} ${GLEW_LINK} ${GLFW_LINK})
 
     # 执行编译命令
-    set(SOURCE_FILES main/1Triangle.cpp main/2ProgramingStart.cpp main/src/ main/include/MineUtils.h main/src/MineUtils.cpp)
+#    set(SOURCE_FILES main/1Triangle.cpp main/2ProgramingStart.cpp main/src/ main/include/MineUtils.h main/src/MineUtils.cpp)
     add_executable(OpenGLLearn ${SOURCE_FILES})
 
     if (APPLE)
@@ -33,7 +35,7 @@ if (MACOS)
     endif()
 elseif (WINDOWS)
     cmake_minimum_required(VERSION 3.16)
-    project(learn_opengl)
+    project(OpenGLLearn)
 
     set(CMAKE_CXX_STANDARD 14)
     set("PROGRAM_INCLUDE ${PROJECT_SOURCE_DIR}/main/include")
@@ -41,8 +43,9 @@ elseif (WINDOWS)
     link_directories("C:/Environments/OpenGL/lib")
     include_directories("C:/Environments/OpenGL/include ${PROGRAM_INCLUDE}")
 
-    add_executable(learn_opengl src/glad.c main/1Triangle.cpp main/2ProgramingStart.cpp main/src/ main/include/MineUtils.h main/src/MineUtils.cpp)
-    target_link_libraries(learn_opengl -lOpengl32 libglfw3.a glew32.lib glew32s.lib)
+#    add_executable(OpenGLLearn src/glad.c main/1Triangle.cpp main/2ProgramingStart.cpp main/src/ main/include/MineUtils.h main/src/MineUtils.cpp main/2TestGLUT.cpp)
+    add_executable(OpenGLLearn ${SOURCE_FILES})
+    target_link_libraries(OpenGLLearn -lfreeglut -lopengl32 libglfw3.a glew32.lib glew32s.lib)
 elseif (LINUX)
 endif ()
 

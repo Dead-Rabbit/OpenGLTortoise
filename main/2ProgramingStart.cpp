@@ -43,8 +43,7 @@ void display(GLFWwindow * window, double currentTime) {
 	glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
-int main()
-{
+int run_chapter_2_program() {
     if (!glfwInit())
         exit(EXIT_FAILURE);
 
@@ -73,4 +72,10 @@ int main()
     glfwDestroyWindow(window);
     glfwTerminate();
     exit(EXIT_SUCCESS);
+    return 0;
 }
+
+//int main()
+//{
+//    return run_chapter_2_program();
+//}
