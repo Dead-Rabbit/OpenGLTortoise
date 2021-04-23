@@ -6,7 +6,7 @@ elseif (CMAKE_HOST_UNIX)
     set(LINUX 1)
 endif ()
 
-set(SOURCE_FILES main/1Triangle.cpp main/2ProgramingStart.cpp main/src/ main/include/MineUtils.h main/src/MineUtils.cpp main/2TestGLUT.cpp)
+set(SOURCE_FILES main/1Triangle.cpp main/2ProgramingStart.cpp main/src/ main/include/MineUtils.h main/src/MineUtils.cpp main/2TestGLUT.cpp main/3Program3D.cpp)
 
 if (MACOS)
     cmake_minimum_required(VERSION 3.16)
@@ -43,7 +43,6 @@ elseif (WINDOWS)
     link_directories("C:/Environments/OpenGL/lib")
     include_directories("C:/Environments/OpenGL/include ${PROGRAM_INCLUDE}")
 
-#    add_executable(OpenGLLearn src/glad.c main/1Triangle.cpp main/2ProgramingStart.cpp main/src/ main/include/MineUtils.h main/src/MineUtils.cpp main/2TestGLUT.cpp)
     add_executable(OpenGLLearn src/glad.c ${SOURCE_FILES})
     target_link_libraries(OpenGLLearn -lfreeglut -lopengl32 libglfw3.a glew32.lib glew32s.lib) # freeglut 版本
 

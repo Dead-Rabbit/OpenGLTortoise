@@ -39,6 +39,6 @@ int run_2_test_glut(int argc, char** argv) {
     return 0;
 }
 
-int main(int argc, char** argv){
-    return run_2_test_glut(argc, argv);
-}
+//int main(int argc, char** argv){
+//    return run_2_test_glut(argc, argv);
+//}
